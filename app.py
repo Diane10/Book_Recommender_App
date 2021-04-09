@@ -3,7 +3,6 @@ import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity,linear_kernel    
 from flask import Flask, render_template, request, jsonify
-from flask_ngrok import run_with_ngrok 
 import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity,linear_kernel      
@@ -14,9 +13,6 @@ from tensorflow import keras
 
 model = tf.keras.models.load_model('my_model.h5')
 app = Flask(__name__)
-
-run_with_ngrok(app)
-
 def load_data(data):
     df= pd.read_csv(data, sep= ';', error_bad_lines= False, encoding= 'latin-1')
     df=df.head(500)
