@@ -101,46 +101,5 @@ def predict():
       images = result['Image-URL-L']
       suggestions= get_suggestions()
   return render_template('Recommender.html',titles_rating=titles_rating,authors_rating=authors_rating, scores_rating=scores_rating,images_rating=images_rating,title = titles,author=authors,year = years,image=images,suggestions=suggestions,searchtitles=searchtitles,searchauthors=searchauthors,searchyears=searchyears,searchimages=searchimages)
-
-
-# @app.route('/predictreviews', methods = ['POST']) # /result route
-# def predictreviews():
-#   name = request.form['book_name']
-#   searchdf = df[df['Book-Title']== name]
-#   searchtitles = searchdf['Book-Title']
-#   searchauthors= searchdf['Book-Author']
-#   searchyears= searchdf['Year-Of-Publication']
-#   # scores=result['similarity score']
-#   searchimages = searchdf['Image-URL-L']
-#   df_rating=pd.read_csv('https://raw.githubusercontent.com/Diane10/movies/main/mostrated.csv')
-#   titles_rating = df_rating['book_title']
-#   authors_rating=df_rating['book_author']
-#   # years=df['year_of_publication']
-#   scores_rating=df_rating['ratings']
-#   images_rating = df_rating['image_url_l']
-#   if name is not None:
-#     try :
-#       result= get_recommendation(name,cosine_sim_mat,df,8)
-#       titles = result['Book-Title']
-#       authors=result['Book-Author']
-#       years=result['Year-Of-Publication']
-#       # scores=result['similarity score']
-#       images = result['Image-URL-L']
-#       suggestions= get_suggestions()
-#     except:
-#       name= search_term_if_not_found(name,df)
-#       searchdf = df[df['Book-Title']== name]
-#       searchtitles = searchdf['Book-Title']
-#       searchauthors= searchdf['Book-Author']
-#       searchyears= searchdf['Year-Of-Publication']
-#       # scores=result['similarity score']
-#       searchimages = searchdf['Image-URL-L']
-#       result= get_recommendation(name,cosine_sim_mat,df,8)
-#       titles = result['Book-Title']
-#       authors=result['Book-Author']
-#       years=result['Year-Of-Publication']
-#       # scores=result['similarity score']
-#       images = result['Image-URL-L']
-#       suggestions= get_suggestions()
-#   return render_template('Reviews.html',titles_rating=titles_rating,authors_rating=authors_rating, scores_rating=scores_rating,images_rating=images_rating,title = titles,author=authors,year = years,image=images,suggestions=suggestions,searchtitles=searchtitles,searchauthors=searchauthors,searchyears=searchyears,searchimages=searchimages)
-app.run()
+if __name__ == '__main__':
+    app.run(debug=True)
