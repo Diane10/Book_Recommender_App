@@ -28,6 +28,7 @@ def vectorize_text_to_cosine_max(data):
     cv_mat= count_vec.fit_transform(data)
     cosine_sim=cosine_similarity(cv_mat)
     return cosine_sim
+# 
 def get_recommendation(title,cosine_sim_mat,df,num_of_rec=8):
     course_indices=pd.Series(df.index,index=df['Book-Title']).drop_duplicates()
     idx=course_indices[title]
