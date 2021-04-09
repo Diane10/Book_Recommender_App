@@ -166,4 +166,4 @@ def book_collaborative_recommend(coll_titles):
   c_years= displ['year_of_publication']
   return render_template('result.html',year_searched=year_searched,c_years=c_years,images_searched=images_searched,authors_searched=authors_searched,titles_searched=titles_searched,c_title=c_title,c_authors=c_authors,c_small_image_url=c_small_image_url)
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,use_reloader=False)
